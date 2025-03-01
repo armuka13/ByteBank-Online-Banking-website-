@@ -15,21 +15,26 @@
 
 .mainListedItem:hover{
     color: gold;
+    cursor: default;
 }
 
 .secondaryListedItem{
     display: block;
-    font-size:20px;
+    font-size:24px;
     color: teal;
-    padding: 5% 2% 5% 2%;
+    padding: 8% 5% 8% 5%;
+    margin: 2% 2% 2% 2%;
     font-weight: bold;
     width: 100%;
     height:100%;
     box-sizing: border-box;
+    cursor: default;
+    
 }
 
 .secondaryListedItem:hover{
     color: black;
+    border-radius: 0%;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
     background-color: lightgray;
 }
@@ -39,11 +44,13 @@
     color: teal;
     padding: 1% 2% 1% 2%;
     font-weight: bold;
-
+    width:max-content;
+    
 }
 
 .dropdownSummary:hover{
     color: black;
+    cursor: default;
 }
 
 
@@ -57,12 +64,15 @@
 
 .verticalList {
     list-style-type: none;
-    margin-left: 0%;
+    margin-left: 0.5%;
     padding: 0;
     overflow: hidden;
     float: left;
     display: block;
-    
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: 15%;
 }
 
 #dashboard{
@@ -71,6 +81,7 @@
     background-color: white;
     height: 20%;
     width: 100%;
+    position: relative;
 }
 
 #titleId{
@@ -92,15 +103,5 @@
     
 }
 
-.dropdown{
-    display:block;
-    margin-top:0%;
-    padding-left:2%;
-    color: teal;
-    font-weight: bold;
-    width: auto;
-}
 
-.dropdown:hover{
-    color: black;
-}
+
