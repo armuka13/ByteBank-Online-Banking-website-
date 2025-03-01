@@ -1,0 +1,66 @@
+#headerId{
+    padding-top:0%;
+    margin-top: 0%;
+
+}
+
+.li1{
+    float: left;
+    font-size:20px;
+    color: white;
+    padding: 1% 2% 1% 2%;
+    font-weight: bold;
+
+}
+
+.li2{
+    float: left;
+    font-size:20px;
+    color: white;
+    padding: 1% 2% 1% 2%;
+
+}
+
+.li1:hover{
+    color: gold;
+}
+
+.horizontalList {
+    list-style-type: none;
+    margin-left: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: teal;
+}
+
+.verticalList {
+    list-style-type: none;
+    
+}
+
+#dashboard{
+    margin-top: 0%;
+    padding-top: 0%;
+    background-color: white;
+    height: 20%;
+    width: 100%;
+}
+
+#titleId{
+    font-size: 30px;
+    font-weight: bold;
+    color: teal;
+}
+
+
+#logoId{
+    display: flex; 
+    align-items: center; 
+    gap: 1%; 
+    padding: 1%; 
+}
+
+#textId{
+    text-align: center;
+    
+}
