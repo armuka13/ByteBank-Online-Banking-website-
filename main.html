@@ -5,30 +5,44 @@
     <title>BYTE Bank</title>
     <link rel="icon" type="image/png" href="Images/BankLogo2.png">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <header id = "headerId">
         <nav>
         <ul class = "horizontalList">
-            <li class="li1">Personal</li>
-            <li class = li1>Small Business</li>
-            <li class = li1>Investing & Wealth</li>
-            <li class = li1>About Us</li>
+            <li class="mainListedItem">Personal</li>
+            <li class = mainListedItem>Small Business</li>
+            <li class = mainListedItem>Investing & Wealth</li>
+            <li class = mainListedItem>About Us</li>
         </ul>
         </nav>
         <div id = "dashboard">
             <div id = "logoId">
-                <img alt = "Logo/ Home" src = "Images/BankLogo2.png" width = "10%" height = "10%" />	
+                <img alt = "Logo/ Home" src = "Images/BankLogo2.png" width = "10%" height = "10%" style="box-shadow: 2px 2px 10px rgba(4, 88, 74, 0.5);"/>	
                 <div id = "textId">
                     <h1 id = "titleId">BYTE Bank</h1>
-                    <h2 id = "moto">Byte into Your Future</h2>
+                    <h2>Byte Into Your Future</h2>
                 </div>
-             </div>
+                <details style = "margin-left: 2%; padding-left: 2%;">
+                    <summary class="dropdownSummary">Products</summary>
+                    <div class="dropdown">
+                        <ul class="verticalList">
+                            <li class="secondaryListedItem">Checking</li>
+                            <li class="secondaryListedItem">Savings</li>
+                            <li class="secondaryListedItem">Credit Card</li>
+                            <li class="secondaryListedItem">Personal Loans</li>
+                            <li class="secondaryListedItem">Debit Cards</li>
+                            <li class="secondaryListedItem">Special Offers</li>
+                        </ul>
+                    </div>
+            </details>
+             
         </div>
     </header>
 
     <main>
-
+        
     </main>
 </body>
 
