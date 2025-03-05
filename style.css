@@ -2,7 +2,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; 
+    width: 100%;
     background-color: #008080;
     z-index: 1000;
 }
@@ -32,7 +32,7 @@
     height:100%;
     box-sizing: border-box;
     cursor: default;
-    
+   
 }
 
 .secondaryListedItem:hover{
@@ -48,7 +48,7 @@
     padding: 1% 2% 1% 2%;
     font-weight: bold;
     width:max-content;
-    
+   
 }
 
 .dropdownSummary:hover{
@@ -86,9 +86,9 @@
     height: 20%;
     max-width: 100%;
     position: relative;
-    display: flex; 
-    align-items: center; 
-    gap: 1%; 
+    display: flex;
+    align-items: center;
+    gap: 1%;
 }
 
 #titleId{
@@ -97,9 +97,9 @@
     color: teal;
 }
 
-#textId{
+.aligntext{
     text-align: center;
-    
+   
 }
 
 .searchBar{
@@ -114,6 +114,21 @@
     font-weight: bold;
 }
 
+.headOne{
+color:teal;
 
+}
 
+.container{
+box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+border: 2px solid teal;
+border-radius: 20px;
+width:25%;
 
+}
+
+.containerParagraph{
+color:teal;
+padding-left:2%;
+font-weight: bold;
+}
