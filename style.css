@@ -5,6 +5,7 @@
     width: 100%;
     background-color: #008080;
     z-index: 1000;
+    height:6%;
 }
 
 .mainListedItem{
@@ -45,7 +46,7 @@
 .dropdownSummary{
     font-size:25px;
     color: teal;
-    padding: 1% 2% 1% 2%;
+    padding: 1% 2% 6% 2%;
     font-weight: bold;
     width:max-content;
    
@@ -80,7 +81,7 @@
 
 #dashboard{
     margin-top: 6%;
-    margin-left: 3%;
+    margin-left: 2%;
     padding: 1%;
     background-color: white;
     height: 20%;
@@ -93,8 +94,8 @@
 
 #titleId{
     font-size: 30px;
-    font-weight: bold;
     color: teal;
+    text-align: center;
 }
 
 .aligntext{
@@ -103,13 +104,13 @@
 }
 
 .searchBar{
-    margin-left:20%;
+
     border: 2px solid teal;
     border-radius: 25px;
     padding:5%;
     text-align: center;
     color: teal;
-    width:auto;
+    width: 100%;
     font-size: 18px;
     font-weight: bold;
 }
@@ -119,11 +120,11 @@ color:teal;
 
 }
 
-.container{
+.container2{
 box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 border: 2px solid teal;
 border-radius: 20px;
-width:25%;
+width:27%;
 
 }
 
@@ -131,4 +132,5 @@ width:25%;
 color:teal;
 padding-left:2%;
 font-weight: bold;
+text-align: center;
 }

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>BYTE Bank</title>
     <link rel="icon" type="image/png" href="Images/BankLogo2.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script.js"></script>
 </head>
@@ -11,22 +12,22 @@
     <header id = "headerId">
         <nav>
         <ul class = "horizontalList">
-            <li class="mainListedItem">Personal</li>
-            <li class = mainListedItem>Small Business</li>
-            <li class = mainListedItem>Investing & Wealth</li>
-            <li class = mainListedItem>About Us</li>
+            <li class="mainListedItem col">Personal</li>
+            <li class = "mainListedItem col">Small Business</li>
+            <li class = "mainListedItem col">Investing & Wealth</li>
+            <li class = "mainListedItem col">About Us</li>
         </ul>
         </nav>
     </header>
 <!-- Dashboard -->
         <div id = "dashboard">
 
-                <img alt = "Logo/ Home" src = "Images/BankLogo2.png" width = "10%" height = "10%" style="box-shadow: 2px 2px 10px rgba(4, 88, 74, 0.5);"/>	
-                <div id = "textId">
-                    <h1 id = "titleId">BYTE Bank</h1>
-                    <h2>Byte Into Your Future&reg</h2>
+                <img alt = "Logo/ Home" src = "Images/BankLogo2.png" width = "10%" style="box-shadow: 2px 2px 10px rgba(4, 88, 74, 0.5);" />	
+                <div id = "titleId" class = "col">
+                    <h2 id = "titleId">BYTE Bank</h2>
+                    <h3 style = "color: black">Byte Into Your Future&reg</h3>
                 </div>
-                <details style = "margin-left: 2%; padding-left: 2%;">
+                <details class = "col">
                     <summary class="dropdownSummary">Products</summary>
                         <ul class="verticalList">
                             <li class="secondaryListedItem">Checking</li>
@@ -37,7 +38,7 @@
                             <li class="secondaryListedItem">Special Offers</li>
                         </ul>
             </details>
-            <details style = "margin-left: 2%; padding-left: 2%;">
+            <details class = "col">
                 <summary class="dropdownSummary">Services</summary>
                     <ul class="verticalList" style = "width: 21%;">
                         <li class="secondaryListedItem">Online Banking</li>
@@ -47,12 +48,12 @@
                     </ul>
             </details>  
 <!-- Search box -->
-            <div>    
+            <div class = "col">    
                 <input type="text" placeholder="&#x1F50E SEARCH" class="searchBar"><!--Shiko w3School si e ka search-->
             </div>
 <!-- Login -->
-            <details>
-                <summary style = " list-style: none; margin-left: 100%;"> <img alt="login" src="Images/LoginImage.png" class="logo" width = "100px" height = "100px"></summary>
+            <details class = "col">
+                <summary style = " list-style: none; margin-left: 5%"> <img alt="login" src="Images/LoginImage.png" class="logo" width = "100px" height = "100px"></summary>
                 <ul class="verticalList">
                     <li class = "secondaryListedItem">LOG IN</li>
                     <li class = "secondaryListedItem">SIGN UP</li>
@@ -62,7 +63,7 @@
 
 
     <main>
-        
+
     </main>
 </body>
 
