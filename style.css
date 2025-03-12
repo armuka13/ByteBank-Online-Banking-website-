@@ -14,12 +14,17 @@
     color: white;
     padding: 1% 2% 1% 2%;
     font-weight: bold;
-
+    text-align: center;
 }
 
 .mainListedItem:hover{
     color: gold;
     cursor: default;
+    background-color: #08575D;
+    transform: scale(1.1);
+    transition: 0.35s ease;
+    border-radius: 25px;
+    box-shadow: #08575D 0 0 10px;
 }
 
 .secondaryListedItem{
