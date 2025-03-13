@@ -1,3 +1,11 @@
+*{
+    transition: 0.5s ease;
+}
+
+body{
+    background-color: #C9F3F3
+}
+
 #headerId{
     position: fixed;
     top: 0;
@@ -22,7 +30,6 @@
     cursor: default;
     background-color: #08575D;
     transform: scale(1.1);
-    transition: 0.35s ease;
     border-radius: 25px;
     box-shadow: #08575D 0 0 10px;
 }
@@ -63,6 +70,7 @@
 }
 
 
+
 .horizontalList {
     list-style-type: none;
     margin-left: 0;
@@ -86,9 +94,8 @@
 
 #dashboard{
     margin-top: 6%;
-    margin-left: 2%;
     padding: 1%;
-    background-color: white;
+    background-color: #C9F3F3;
     height: 20%;
     max-width: 100%;
     position: relative;
@@ -122,6 +129,7 @@
 
 .headOne{
 color:teal;
+text-shadow: #08575D 1.5px 2px 5px;
 
 }
 
@@ -130,7 +138,7 @@ box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 border: 2px solid teal;
 border-radius: 20px;
 width:27%;
-
+background-color: white;
 }
 
 .containerParagraph{
