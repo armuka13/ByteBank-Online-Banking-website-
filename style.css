@@ -3,7 +3,7 @@
 }
 
 body{
-    background-color: #C9F3F3
+    background-color: #C9F3F3;
 }
 
 #headerId{
@@ -32,6 +32,13 @@ body{
     transform: scale(1.1);
     border-radius: 25px;
     box-shadow: #08575D 0 0 10px;
+}
+
+.clickedItem{
+    color: gold;
+    /* background-color: #08575D; 
+    border-radius: 25px;
+    box-shadow: #08575D 0 0 10px;  */
 }
 
 .secondaryListedItem{
@@ -115,7 +122,7 @@ body{
    
 }
 
-.searchBar{
+#searchBar{
 
     border: 2px solid teal;
     border-radius: 25px;
@@ -133,6 +140,10 @@ text-shadow: #08575D 1.5px 2px 5px;
 
 }
 
+.headOne-noShadow{
+    color:teal;
+}
+
 .container2{
 box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 border: 2px solid teal;
@@ -140,6 +151,14 @@ border-radius: 20px;
 width:27%;
 background-color: white;
 }
+
+.container-full{
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: 2px solid teal;
+    border-radius: 20px;
+    width:80%;
+    background-color: white;
+    }
 
 .containerParagraph{
 color:teal;
@@ -212,3 +231,15 @@ text-align: center;
 .linkClass{
     text-decoration: none;
 }
+
+#faq{
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: 2px solid teal;
+    border-radius: 20px;
+    background-color: white;
+    margin: 5% auto;
+    padding: 3%;
+    text-align: center;
+    width: 72%
+}
+

@@ -35,4 +35,49 @@ $("#registerTxt").click(function() {
 })
 
 
+$(document).ready(function() {
+
+    $("#faq").hide();// Hide all FAQ sections initially
+    $("#searchBar").on("keyup", function() {
+        let searchText = $(this).val().toLowerCase();
+
+        if (searchText.length > 0) {
+            $("#faq").show();// show FAQ sections 
+            $("#mainContent").hide(); // Hide all other elements
+            $("#faq > div").each(function() {
+                let questionText = $(this).find("h3").text().toLowerCase();
+
+                if (questionText.includes(searchText)) {
+                    $(this).show(); // Show matching FAQs
+                } else {
+                    $(this).hide(); // Hide non-matching FAQs
+                }
+            });
+        } else {
+            $("#mainContent").show(); // Show everything back when input is empty
+            $("#faq").hide(); // hide all FAQs
+        }
+    });
+});
+
+
+// $(document).ready(function () {
+//     // Search function
+//     $('#searchBar').on('input', function () {
+//         var searchQuery = $(this).val().toLowerCase(); // Get the value from the search bar and make it lowercase
+
+//         // Loop through all navbar items and filter based on the search query
+//         $('#navItems .nav-item').each(function () {
+//             var itemText = $(this).text().toLowerCase(); // Get the text of the current item and make it lowercase
+
+//             if (itemText.indexOf(searchQuery) > -1) {
+//                 $(this).show(); // Show the item if it matches the search query
+//             } else {
+//                 $(this).hide(); // Hide the item if it doesn't match
+//             }
+//         });
+//     });
+// });
+
+
 
