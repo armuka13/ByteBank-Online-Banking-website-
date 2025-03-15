@@ -158,6 +158,8 @@ background-color: white;
     border-radius: 20px;
     width:80%;
     background-color: white;
+    align-items: center;
+    padding-bottom: 2%;
     }
 
 .containerParagraph{
@@ -243,3 +245,15 @@ text-align: center;
     width: 72%
 }
 
+.simpleList{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    float: left;
+    font-size:20px;
+    color: white;
+    background-color:teal;
+    padding: 1% 2% 1% 2%;
+    font-weight: bold;
+    text-align: center;
+}
