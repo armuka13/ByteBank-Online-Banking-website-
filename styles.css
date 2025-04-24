@@ -6,14 +6,24 @@ body{
     background-color: #C9F3F3;
 }
 
-#headerId{
-    position: fixed;
+#headerId {
+    position: fixed; /* Keeps the header at the top of the page */
     top: 0;
     left: 0;
-    width: 100%;
-    background-color: #008080;
-    z-index: 1000;
-    height:6%;
+    width: 100%; /* Full width of the page */
+    height: 100px; /* Fixed height for the header */
+    background-color: teal; /* Background color for the header */
+    z-index: 1000; /* Ensures the header is above other elements */
+    display: flex;
+    align-items: center; /* Vertically centers the content */
+    justify-content: space-between; /* Distributes content evenly */
+    padding: 0 20px; /* Adds padding to the sides */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+}
+
+#mainContent {
+    margin-top: 70px; /* Push the main content below the header */
+
 }
 
 .mainListedItem{
@@ -23,22 +33,68 @@ body{
     padding: 1% 2% 1% 2%;
     font-weight: bold;
     text-align: center;
+    margin-top: 22px;
 }
 
 .mainListedItem:hover{
     color: gold;
     cursor: default;
-    background-color: #08575D;
+    transform: scale(1.2);
+    border-radius: 25px;
+    /* box-shadow: #08575D 0 0 10px;
+    background-color: #034545; */
+}
+
+
+.mainListedInput{
+    float: left;
+    font-size:20px;
+    color: white;
+    padding: 1% 2% 1% 2%;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.5%;
+}
+
+.mainListedItemInput:hover{
+    color: gold;
+    cursor: default;
     transform: scale(1.1);
     border-radius: 25px;
-    box-shadow: #08575D 0 0 10px;
+    background-color: white;
+}
+
+.mainListedImage{
+    float: left;
+    font-size:20px;
+    color: white;
+    padding: 1% 2% 1% 2%;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.mainListedImage:hover{
+    color: gold;
+    cursor: default;
+    transform: scale(1.1);
+    border-radius: 25px;
+
+}
+
+.mainListedItem img {
+    display: block; /* Ensures the image behaves like a block element */
+    margin: 0 auto; /* Centers the image horizontally within the list item */
+}
+
+.mainListedItem img:hover {
+    transform: scale(1.1);
+    background-color: teal;
 }
 
 .clickedItem{
     color: gold;
-    /* background-color: #08575D; 
-    border-radius: 25px;
-    box-shadow: #08575D 0 0 10px;  */
+
 }
 
 .secondaryListedItem{
@@ -63,12 +119,12 @@ body{
 }
 
 .dropdownSummary{
-    font-size:25px;
-    color: teal;
+    font-size:20px;
+    color: white;
     padding: 1% 2% 6% 2%;
     font-weight: bold;
     width:max-content;
-   
+    text-align: center;
 }
 
 .dropdownSummary:hover{
@@ -83,7 +139,9 @@ body{
     margin-left: 0;
     padding: 0;
     overflow: hidden;
-    background-color: teal;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .verticalList {
@@ -177,12 +235,15 @@ text-align: center;
     background-color: white;
     height: 85%;
     width: 40%;
+    min-width: 350px;
+    min-height: 500px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 8px 10px 10px #3ACDCD;
     color: teal;
+    display: flex;
 }
 
 #registerForm{
@@ -193,12 +254,17 @@ text-align: center;
     background-color: white;
     height: 85%;
     width: 40%;
+    min-width: 350px;
+    min-height: 500px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 8px 10px 10px #3ACDCD;
     color: teal;
+    /* min-inline-size: 500px; */
+    display: flex;
+
 }
 
 .form-input{
@@ -257,3 +323,13 @@ text-align: center;
     font-weight: bold;
     text-align: center;
 }
+
+
+#error-alert{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    z-index: 1000;
+}
+
+
+
+

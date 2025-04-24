@@ -34,50 +34,61 @@ $("#registerTxt").click(function() {
     $("#registerForm").show();
 })
 
+$(document).ready(function () {
+    $("#faq").hide(); // Hide all FAQ sections initially
 
-$(document).ready(function() {
-
-    $("#faq").hide();// Hide all FAQ sections initially
-    $("#searchBar").on("keyup", function() {
+    $("#searchBar").on("keyup", function () {
         let searchText = $(this).val().toLowerCase();
 
         if (searchText.length > 0) {
-            $("#faq").show();// show FAQ sections 
-            $("#mainContent").hide(); // Hide all other elements
-            $("#faq > div").each(function() {
-                let questionText = $(this).find("h3").text().toLowerCase();
+            $("#faq").show(); // Show FAQ sections
+            $("#mainContent").hide(); // Hide the main content
 
-                if (questionText.includes(searchText)) {
+            // Search through FAQ questions and their associated text
+            $("#faq > div").each(function () {
+                let questionText = $(this).find("h3").text().toLowerCase();
+                let additionalText = $(this).find("p").text().toLowerCase(); // Include text below the question
+
+                if (questionText.includes(searchText) || additionalText.includes(searchText)) {
                     $(this).show(); // Show matching FAQs
                 } else {
                     $(this).hide(); // Hide non-matching FAQs
                 }
             });
+
+            // Search through all other content except the header and FAQ
+            $("body *").not("header, header *, #faq, #faq *").each(function () {
+                let elementText = $(this).text().toLowerCase();
+
+                if (elementText.includes(searchText)) {
+                    $(this).show(); // Show matching elements
+                } else {
+                    $(this).hide(); // Hide non-matching elements
+                }
+            });
         } else {
-            $("#mainContent").show(); // Show everything back when input is empty
-            $("#faq").hide(); // hide all FAQs
+            $("#mainContent").show(); // Show the main content when input is empty
+            $("#faq").hide(); // Hide all FAQs
+            $("body *").not("header, header *").show(); // Show all elements except the header
         }
     });
 });
 
+$(document).ready(function() {
 
-// $(document).ready(function () {
-//     // Search function
-//     $('#searchBar').on('input', function () {
-//         var searchQuery = $(this).val().toLowerCase(); // Get the value from the search bar and make it lowercase
+        // Show the alarm immediately with a fade-in effect
+        $("#error-alert").fadeIn();
 
-//         // Loop through all navbar items and filter based on the search query
-//         $('#navItems .nav-item').each(function () {
-//             var itemText = $(this).text().toLowerCase(); // Get the text of the current item and make it lowercase
+        // Set a timer to hide the alarm after 5 seconds (5000 ms)
+        setTimeout(function() {
+            $("#error-alert").fadeOut();  // Hide the alarm with a fade-out effect
+        }, 5000);  // Hide after 5 seconds
+});
 
-//             if (itemText.indexOf(searchQuery) > -1) {
-//                 $(this).show(); // Show the item if it matches the search query
-//             } else {
-//                 $(this).hide(); // Hide the item if it doesn't match
-//             }
-//         });
-//     });
-// });
 
+function showSideBar(){
+    const sidebar = document.querySelector('.sideBar');
+    sidebar.style.display = 'flex';
+}
 
 
