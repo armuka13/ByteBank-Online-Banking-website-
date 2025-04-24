@@ -2,6 +2,12 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+    if(isset($_SESSION["username"])||isset($_SESSION["email"])){
+        session_start();        
+    }else{
+        header("Location: loginForm.php");
+        exit();
+    }
 require_once 'config.php';
 $username = $_SESSION['username'] ?? null;
 $email = $_SESSION['email'] ?? null;

@@ -1,5 +1,7 @@
 <?php
-
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once 'config.php';
 $username = $_SESSION['username'] ?? null;
 $email = $_SESSION['email'] ?? null;
@@ -31,6 +33,6 @@ $user = $result->fetch_assoc();
         <li><a href="accounts.php"><b>Accounts</b></a></li>
         <li><a href="createAccount.php"><b>Create Account</b></a></li>
         <li><a href="sendMoney.php"><b>Send Money</b></a></li>
-        <li><a href="logout.php"><b>Log Out</b></a></li>
+        <li><a href="logout.php?token=<?php echo $_SESSION['token']; ?>"><b>Log Out</b></a></li>
     </ul>
 </div>

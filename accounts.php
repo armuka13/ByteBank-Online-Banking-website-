@@ -139,6 +139,9 @@ $accounts = $conn->query("SELECT * FROM accounts WHERE user_id = '" . $user['id'
             .sender{
                 background-color:rgb(160, 160, 160);
             }
+            .table-body tr:hover{
+                cursor: pointer;
+            }
         </style>
     </head>
     <body>
@@ -207,7 +210,7 @@ $accounts = $conn->query("SELECT * FROM accounts WHERE user_id = '" . $user['id'
                                                 </tr>
                                             </thead>
 
-                                            <tbody>
+                                            <tbody class="table-body">
                                                 <?php while ($transaction = $transactions->fetch_assoc()): ?>
                                                     <?php 
                                                         $receiver_name = $conn->query("
@@ -231,7 +234,7 @@ $accounts = $conn->query("SELECT * FROM accounts WHERE user_id = '" . $user['id'
 
 
                                                     ?>
-                                                    <tr class="<?php if ($transaction['sender_acc'] == $account['id']) { echo 'sender'; } ?>">
+                                                    <tr class="<?php if ($transaction['sender_acc'] == $account['id']) { echo 'sender'; } ?>"  onclick="window.location.href='transactionsView.php?transaction_id=<?php echo $transaction['id']; ?>'">
                                                         <td><?php echo $transaction['created_at']; ?></td>
                                                         <td><?php echo $transaction['sender_acc'] + 1000000; ?></td>
                                                         <td><?php echo $transaction['receiver_acc'] + 1000000; ?></td>

@@ -1,12 +1,13 @@
 <?php
-session_start();
-
-// if (!isset($_SESSION['name'])) {
-//     header("Location: loginForm.php");
-//     exit();
-// }
-// Set session timeout to 4 hours (14400 seconds)
-$timeout = 14400; // 4 hours in seconds
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+    if(isset($_SESSION["username"])||isset($_SESSION["email"])){
+            
+    }else{
+        header("Location: loginForm.php");
+        exit();
+    }
 
 // Check if the session is set and if it has expired
 if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $timeout) {
@@ -131,7 +132,7 @@ unset($_SESSION['login_success']);
                         <div class="card-body">
                             <h5 class="card-title">Logout</h5>
                             <p class="card-text">Log out of the administrator dashboard.</p>
-                            <a href="logout.php" class="btn btn-dashboard">Logout</a>
+                            <a href="logout.php?token=<?php echo isset($_SESSION['token']) ? $_SESSION['token'] : ''; ?>" class="btn btn-dashboard">Logout</a>
                         </div>
                     </div>
                 </div>

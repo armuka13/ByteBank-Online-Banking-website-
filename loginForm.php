@@ -1,6 +1,17 @@
 <?php
     session_start();
+    if (isset($_SESSION["username"]) || isset($_SESSION["email"])) {
+        // Redirect to dashboard if already logged in
+        if(isset($_SESSION["role"]) && $_SESSION["role"] === 'admin') {
+            header("Location: adminDashboard.php");
+        } else if(isset($_SESSION["role"]) && $_SESSION["role"] === 'user') {
+            header("Location: userDashboard.php");
+        } else if(isset($_SESSION["role"]) && $_SESSION["role"] === 'manager') {
+            header("Location: managerDashboard.php");
+        }
 
+        exit();
+    }
     // Retrieve errors from the session
     $errors = [
         'login' => $_SESSION['login_error'] ?? '',
@@ -26,6 +37,12 @@
             return "<div class='alert alert-success text-center' id ='error-alert' role='alert' style='position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;'>$success</div>";
         }
     }
+
+    if (isset($_SESSION["username"])) {
+        header("Location: userDashboard.php");
+        exit();
+    }
+    
 ?>
 
 <!DOCTYPE html>
