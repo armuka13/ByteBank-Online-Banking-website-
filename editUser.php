@@ -14,6 +14,11 @@ if (!$user) {
     die("Error: User not found.");
 }
 
+   // Retrieve errors from the session
+   $errors = [
+    'login' => $_SESSION['login_error'] ?? '',
+    'register' => $_SESSION['register_error'] ?? ''
+];
 ?>
 <!DOCTYPE html>
 <html>
@@ -84,6 +89,7 @@ if (!$user) {
         .dataField{
             border: 1px solid teal;
             border-radius: 5px;
+            width: 35%;
         }
 
         .back-button {
@@ -108,19 +114,19 @@ if (!$user) {
             <h1>User Profile</h1>
         </div>
         <div class="profile-info">
-                       
+            <form method="POST" action="updateProfile.php?user_id=<?php echo $user_id; ?>">
+            <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
             <p><label>Name:</label> <?php echo '<input name="name" type="text" class="dataField" value='.($user['name']).'></input>'; ?></p>
             <p><label>Last Name:</label> <?php echo '<input name="lastName" type="text" class="dataField" value='.($user['lastName']).'></input>'; ?></p>
             <p><label>Username:</label> <?php echo '<input name="username" type="text" class="dataField" value='.($user['username'] ?? 'N/A').'></input>'; ?></p>
             <p><label>Email:</label> <?php echo '<input name="email" type="text" class="dataField" value='.($user['email'] ?? 'N/A').'></input>'; ?></p>
             <p><label>Phone:</label> <input type="tel" name="phoneNumber" class="dataField" value="<?php echo ($user['phoneNumber'] ?? 'N/A'); ?>"></p>
+        </div>
 
-            <!-- <p><label>Address:</label> <?php echo ($user['address'] ?? 'N/A'); ?></p> -->
-        </div>
-        <div class="btn-container">
-            <a href="updateProfile.php" class="btn btn-primary">Update</a>
+            <button type="submit" class="btn btn-primary">Update</a>
             <!-- <a href="changePassword.php" class="btn btn-secondary">Change Password</a> -->
-        </div>
+
+    </form>
     </div>
 
 </body>

@@ -2,14 +2,8 @@
 session_start();
 require_once 'config.php';
 
-// Validate and retrieve user_id from POST data
-if (!isset($_POST['user_id']) || empty($_POST['user_id'])) {
-    $_SESSION['error'] = "Error: User ID is required.";
-    header("Location: userAccountsFromManager.php");
-    exit;
-}
 
-$user_id = intval($_POST['user_id']);
+$user_id = $_GET['user_id'];
 
 // Fetch user details to ensure the user exists
 $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");

@@ -2,19 +2,20 @@
 session_start();
 require_once 'config.php';
 
-$user_id = $_GET['user_id'] ?? null;
+$user_id = $_GET['user_id'] ?? null; 
 
 if (!$user_id) {
     die("Error: User ID is required.");
 }
 
-// Fetch user details
-$user = $conn->query("SELECT * FROM users WHERE id = '$user_id'")->fetch_assoc();
+// Safer fetch user
+$stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$user = $stmt->get_result()->fetch_assoc();
 if (!$user) {
     die("Error: User not found.");
 }
-// Fetch user accounts
-$accounts = $conn->query("SELECT * FROM accounts WHERE user_id = '$user_id'");
 
 ?>
 
@@ -87,7 +88,7 @@ $accounts = $conn->query("SELECT * FROM accounts WHERE user_id = '$user_id'");
         <h2>Create Account</h2>
 
         <!-- Account Creation Form -->
-        <form method="POST" action="createAccountFromManagerBack.php">
+        <form method="POST" action="createAccountFromManagerBack.php?user_id=<?php echo $user_id; ?>">
             <div class="mb-3">
                 <label for="type" class="form-label">Account Type</label>
                 <select class="form-control" name="type" required>
@@ -97,7 +98,7 @@ $accounts = $conn->query("SELECT * FROM accounts WHERE user_id = '$user_id'");
             </div>
             <div class="mb-3">
                 <label for="balance" class="form-label">Balance</label>
-                <input type="number" step="0.01" class="form-control" id="balance" name="balance" min="2" required>
+                <input type="number" step="1" class="form-control" id="balance" name="balance" min="2" required>
             </div>
             <div class="mb-3">
                 <label for="currency" class="form-label">Currency</label>
