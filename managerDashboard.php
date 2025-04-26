@@ -1,46 +1,37 @@
 <?php
+require_once 'config.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-    if(isset($_SESSION["username"])||isset($_SESSION["email"])){
-            
+    if(isset($_SESSION["username"])||isset($_SESSION["email"])){          
+        
     }else{
         header("Location: loginForm.php");
         exit();
-    }
-
-// Check if the session is set and if it has expired
-if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $timeout) {
-    // Session has expired
-    session_unset(); // Clear session variables
-    session_destroy(); // Destroy the session
-    header("Location: main.php"); // Redirect to main.php
-    exit();
-}
-
-// Update last activity time
-$_SESSION['last_activity'] = time();
-
-// Retrieve the success message
-$successMessage = $_SESSION['login_success'] ?? '';
-
-// Clear the success message from the session
-unset($_SESSION['login_success']);
+        }
+        $username = $_SESSION['username'] ?? null;
+        $email = $_SESSION['email'] ?? null;
+        $result = $conn->query("SELECT * FROM users WHERE username = '" . $username . "' OR email = '" . $email . "'");
+        $user = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Admin Dashboard</title>
+        <title>Manager Dashboard</title>
+        <link rel="icon" type="image/png" href="Images/BankLogo2.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="styles.css">
         <style>
             .dashboard-container {
-                margin: 100px auto;
+                margin: 70px auto;
                 max-width: 1200px;
                 padding: 20px;
                 background-color: #f8f9fa;
                 border-radius: 10px;
+                border-style: solid;
+                border-color: #008080;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
 
@@ -86,7 +77,7 @@ unset($_SESSION['login_success']);
 
         <div class="dashboard-container">
             <div class="dashboard-header">
-                <h1>Welcome, Administrator</h1>
+                <h1><?php echo 'Welcome, '. $user['name'];?></h1>
                 <b><p>Manage the system and oversee user activities.</p></b>
             </div>
 
