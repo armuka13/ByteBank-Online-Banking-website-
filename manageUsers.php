@@ -1,6 +1,10 @@
 <?php
 session_start();
 require_once 'config.php';
+if (isset($_SESSION['user_id'])) {
+    unset($_SESSION['user_id']);
+}
+$_SESSION['user_id'] = null;
 ?>
 <!DOCTYPE html>
 <html>
@@ -75,7 +79,7 @@ require_once 'config.php';
 <body>
     <div class="container">
         <!-- Back Button -->
-        <a href="adminDashboard.php" class="back-button">
+        <a href="managerDashboard.php" class="back-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H3.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708.708L3.707 7.5H14.5A.5.5 0 0 1 15 8z"/>
             </svg>
@@ -90,6 +94,7 @@ require_once 'config.php';
                     <th>Username</th>
                     <th>Phone Number</th>   
                     <th>Email</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -97,14 +102,15 @@ require_once 'config.php';
                     $users = $conn->query("SELECT * FROM users WHERE role = 'user'");
                     foreach($users as $user) {
                         echo "<tr onclick=\"window.location.href='userAccountsFromManager.php?user_id=" . $user['id'] . "'\">";
-                        echo "<td>" . ($user['name']) . " " . htmlspecialchars($user['lastName']) . "</td>";
+                        echo "<td>" . ($user['name']) . " " . ($user['lastName']) . "</td>";
                         echo "<td>" . ($user['username']) . "</td>";
                         echo "<td>" . ($user['phoneNumber']) . "</td>";
                         echo "<td>" . ($user['email']) . "</td>";
+                        echo "<td class='add'><a href='editUser.php?user_id=" . $user['id'] . "'><i class='bi bi-pencil-square' style='color: teal;'></i></a></td>";
                         echo "</tr>";
                     }
                 ?>
-                <tr>
+
             </tbody>
         </table>
     </div>
