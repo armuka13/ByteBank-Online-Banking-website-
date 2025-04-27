@@ -111,8 +111,8 @@ if (session_status() === PHP_SESSION_NONE) {
                     <div class="card text-center">
                         <div class="card-body">
                             <h5 class="card-title">Profile</h5>
-                            <p class="card-text">View and update your administrator profile.</p>
-                            <a href="viewProfile.php" class="btn btn-dashboard">View Profile</a>
+                            <p class="card-text">View and update your manager profile.</p>
+                            <a href="managerProfile.php" class="btn btn-dashboard">View Profile</a>
                         </div>
                     </div>
                 </div>
@@ -122,7 +122,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <div class="card text-center">
                         <div class="card-body">
                             <h5 class="card-title">Logout</h5>
-                            <p class="card-text">Log out of the administrator dashboard.</p>
+                            <p class="card-text">Log out of the manager dashboard.</p>
                             <a href="logout.php?token=<?php echo isset($_SESSION['token']) ? $_SESSION['token'] : ''; ?>" class="btn btn-dashboard">Logout</a>
                         </div>
                     </div>
