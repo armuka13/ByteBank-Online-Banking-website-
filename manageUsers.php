@@ -63,6 +63,7 @@ if ($search) {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            font-weight: bold;
         }
 
         table th, table td {

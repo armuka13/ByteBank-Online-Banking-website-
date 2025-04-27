@@ -2,18 +2,13 @@
 session_start();
 require_once 'config.php';
 
-$user_id = $_GET['user_id'] ?? null;
-$result = $conn->query("SELECT id FROM accounts WHERE user_id = $user_id"); 
-$account_id = $result->fetch_assoc()['id'] ?? null; // Fetch the first account ID for the user
+$account_id = $_GET['account_id'] ?? null;
 
-// Check if the account exists in the database
-$stmt = $conn->prepare("SELECT * FROM accounts WHERE id = ?");
-$stmt->bind_param("i", $account_id);
-$stmt->execute();
-$account = $stmt->get_result()->fetch_assoc();
-$stmt->close();
+$result = $conn->query("SELECT * FROM accounts WHERE id = $account_id");
+$account = $result->fetch_assoc();
 
-if (!$account) {
+
+if (!$account_id) {
     $_SESSION['error'] = "Error: Account not found.";
     header("Location: userAccountsFromManager.php");  // Redirect to the user's accounts page
     exit;
@@ -32,6 +27,7 @@ if ($stmt->execute()) {
 $stmt->close();
 
 // Redirect back to the user's accounts page
+// echo $account['user_id'];
 header("Location: userAccountsFromManager.php?user_id=" . $account['user_id']);
 exit;
 ?>
