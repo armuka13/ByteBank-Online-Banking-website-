@@ -116,9 +116,19 @@ if ($search) {
                     <th>Phone Number</th>   
                     <th>Email</th>
                     <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
+            <tr>
+                <td colspan="6" style="text-align: center;" class="add">
+                    <a href="addUserFromManager.php">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="34px" fill="teal">
+                            <path d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+                        </svg>
+                    </a>    
+                </td>
+            </tr>
                 <?php 
                     // If there's a search, fetch the results from the prepared statement
                     if ($search) {
@@ -128,7 +138,9 @@ if ($search) {
                             echo "<td>" . ($user['username']) . "</td>";
                             echo "<td>" . ($user['phoneNumber']) . "</td>";
                             echo "<td>" . ($user['email']) . "</td>";
-                            echo "<td class='add'><a href='editUser.php?user_id=" . $user['id'] . "'><i class='bi bi-pencil-square' style='color: teal;'></i></a></td>";
+                            echo "<td style='text-align: center;'><a href='deleteUser.php?user_id=" . $user['id'] . "'><i class='bi bi-trash' style='color: red;'></i></a></td>"; 
+                            echo "<td style='text-align: center; class='add'><a href='editUser.php?user_id=" . $user['id'] . "'><i class='bi bi-pencil-square' style='color: teal;'></i></a></td>";
+
                             echo "</tr>";
                         }
                     } else {
@@ -139,7 +151,8 @@ if ($search) {
                             echo "<td>" . ($user['username']) . "</td>";
                             echo "<td>" . ($user['phoneNumber']) . "</td>";
                             echo "<td>" . ($user['email']) . "</td>";
-                            echo "<td class='add'><a href='editUser.php?user_id=" . $user['id'] . "'><i class='bi bi-pencil-square' style='color: teal;'></i></a></td>";
+                            echo "<td style='text-align: center; class='add'><a href='editUser.php?user_id=" . $user['id'] . "'><i class='bi bi-pencil-square' style='color: teal;'></i></a></td>";
+                            echo "<td style='text-align: center;'><a href='deleteUser.php?user_id=" . $user['id'] . "'><i class='bi bi-trash' style='color: red;'></i></a></td>";
                             echo "</tr>";
                         }
                     }
