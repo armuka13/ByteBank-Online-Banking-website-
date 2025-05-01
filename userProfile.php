@@ -94,7 +94,7 @@ $user = $result->fetch_assoc();
         </div>
         <div class="btn-container">
             <!-- <a href="updateProfile.php" class="btn btn-primary">Change Address</a> -->
-            <!-- <a href="changePassword.php" class="btn btn-secondary">Change Password</a> -->
+            <a href="changePassword.php?user_id=<?php echo $user['id'];?>" class="btn btn-secondary">Change Password</a>
         </div>
     </div>
     <script>

@@ -106,6 +106,10 @@ $user = $result->fetch_assoc();
             <p><label>Email:</label> <?php echo ($user['email'] ?? 'N/A'); ?></p>
             <p><label>Phone:</label> <?php echo ($user['phoneNumber'] ?? 'N/A'); ?></p>
         </div>
+        <div class="btn-container">
+            <!-- <a href="updateProfile.php" class="btn btn-primary">Change Address</a> -->
+            <a href="changePasswordManager.php?user_id=<?php echo $user['id'];?>" class="btn btn-secondary">Change Password</a>
+        </div>
 
     </div>
 </body>
