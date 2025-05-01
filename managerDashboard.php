@@ -93,13 +93,13 @@ if (session_status() === PHP_SESSION_NONE) {
                     </div>
                 </div>
 
-                <!-- System Settings -->
+                <!-- Add cashier -->
                 <div class="col-md-6">
                     <div class="card text-center">
                         <div class="card-body">
-                            <h5 class="card-title">System Settings</h5>
-                            <p class="card-text">Configure system settings and preferences.</p>
-                            <a href="systemSettings.php" class="btn btn-dashboard">Settings</a>
+                            <h5 class="card-title">Bank Tellers</h5>
+                            <p class="card-text">View and manager bank tellers.</p>
+                            <a href="BankTellers.php" class="btn btn-dashboard">View Bank Tellers</a>
                         </div>
                     </div>
                 </div>
