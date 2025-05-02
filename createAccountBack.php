@@ -54,17 +54,17 @@ if (!$source_account) {
 $currency_from = $source_account['currency'];
 $source_balance = $source_account['balance'];
 
-// Perform currency conversion if needed
 if ($currency_from && $currency_from != $currency) {
+    // Convert the destination amount to the source currency for comparison
     switch ($currency_from) {
         case 'Lek':
-            $converted_balance = ($currency == 'Euro') ? $balance / 120 : $balance / 110;
+            $required_in_source = ($currency == 'Euro') ? $balance / 120 : $balance / 110;
             break;
         case 'Euro':
-            $converted_balance = ($currency == 'Lek') ? $balance * 120 : $balance * 1.1;
+            $required_in_source = ($currency == 'Lek') ? $balance / 120 : $balance / 1.1;
             break;
         case 'Dollar':
-            $converted_balance = ($currency == 'Lek') ? $balance * 110 : $balance / 1.1;
+            $required_in_source = ($currency == 'Lek') ? $balance / 110 : $balance * 1.1;
             break;
         default:
             $_SESSION['error'] = "Error: Unsupported currency conversion.";
@@ -72,13 +72,14 @@ if ($currency_from && $currency_from != $currency) {
             exit;
     }
 
-    if ($source_balance < $converted_balance) {
+    if ($source_balance < $required_in_source) {
         $_SESSION['error'] = "Error: Insufficient funds in the source account.";
         header("Location: createAccount.php");
         exit;
     }
 
-    // Deduct the converted balance from the source account
+    $converted_balance = (float) $required_in_source;
+
     if (!$conn->query("UPDATE `accounts` SET `balance` = `balance` - $converted_balance WHERE `acc_number` = '$from_account'")) {
         $_SESSION['error'] = "Error updating balance: " . $conn->error;
         header("Location: createAccount.php");
@@ -91,7 +92,6 @@ if ($currency_from && $currency_from != $currency) {
         exit;
     }
 
-    // Deduct the balance directly from the source account
     if (!$conn->query("UPDATE `accounts` SET `balance` = `balance` - $balance WHERE `acc_number` = '$from_account'")) {
         $_SESSION['error'] = "Error updating balance: " . $conn->error;
         header("Location: createAccount.php");
@@ -106,7 +106,6 @@ if ($conn->query("INSERT INTO `accounts`(`type`, `balance`, `iban`, `currency`, 
     $acc_number = 1000000 + $account_id;
     $IBAN = 'AL159' . $acc_number . '159753';
 
-    // Update the account with the generated account number and IBAN
     if ($conn->query("UPDATE `accounts` SET `acc_number` = '$acc_number', `iban` = '$IBAN' WHERE `id` = '$account_id'")) {
         $_SESSION['success'] = "Account created successfully!";
     } else {
