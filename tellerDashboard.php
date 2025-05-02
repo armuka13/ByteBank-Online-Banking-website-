@@ -94,13 +94,13 @@ if (session_status() === PHP_SESSION_NONE) {
                     </div>
                 </div>
 
-                <!-- Add teller -->
+                <!-- Make transactions -->
                 <div class="col-md-6">
-                    <div class="card text-center" style="background-color: red;">
+                    <div class="card text-center"">
                         <div class="card-body">
-                            <h5 class="card-title">Bank Tellers</h5>
-                            <p class="card-text">View and manager bank tellers.</p>
-                            <a href="BankTellers.php" class="btn btn-dashboard">View Bank Tellers</a>
+                            <h5 class="card-title">Make Transactions</h5>
+                            <p class="card-text">Make transactions from one account or cash to another account.</p>
+                            <a href="transferFunds.php" class="btn btn-dashboard">Transfer Funds</a>
                         </div>
                     </div>
                 </div>
