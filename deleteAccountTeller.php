@@ -1,22 +1,23 @@
 <?php
 session_start();
 require_once 'config.php';
-$user_id = $_GET['user_id'] ? intval($_GET['user_id']) : 0;
+
+$user_id = isset($_GET['user_id']) ? intval($_GET['user_id']) : 0;
 $account_id = isset($_GET['acc_id']) ? intval($_GET['acc_id']) : 0;
 
 if (!$account_id) {
-    $_SESSION['error'] = "Error: Account ID is missing or invalid.";
-    header("Location: userAccountsFromManager.php?user_id=".$user_id);
+    $_SESSION['error'] = "Error: Account not found.";
+    header("Location: userAccountsFromTeller.php?user_id=" . $user_id);
     exit;
 }
 
-// Now it's safe to query the database
+// Get the account to retrieve user_id before deleting
 $result = $conn->query("SELECT * FROM accounts WHERE id = $account_id");
 $account = $result->fetch_assoc();
 
 if (!$account) {
     $_SESSION['error'] = "Error: Account does not exist.";
-    header("Location: userAccountsFromManager.php");
+    header("Location: userAccountsFromTeller.php?user_id=" . $user_id);
     exit;
 }
 
@@ -33,6 +34,6 @@ if ($stmt->execute()) {
 $stmt->close();
 
 // Redirect back to the user's accounts page
-header("Location: userAccountsFromManager.php?user_id=" . $user_id);
+header("Location: userAccountsFromTeller.php?user_id=" . $user_id);
 exit;
 ?>

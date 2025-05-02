@@ -121,16 +121,16 @@ function displaySuccess($success) {
 <body>
     <div class="container">
         <!-- Back Button -->
-        <a href="bankTellers.php" class="back-button">
+        <a href="manageUsersTeller.php" class="back-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H3.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708.708L3.707 7.5H14.5A.5.5 0 0 1 15 8z"/>
             </svg>
         </a>
 
-        <h2>Register New Teller</h2>
+        <h2>Register New User</h2>
 
         <!-- Registration Form -->
-        <form class="form-row" method="POST" action="addTellerBack.php">
+        <form class="form-row" method="POST" action="login_register.php">
             <div class="input-group">
                 <input type="text" placeholder="Name" name="name" class="form-control form-input" required />
             </div>
@@ -145,9 +145,6 @@ function displaySuccess($success) {
             </div>
             <div class="input-group">
                 <input type="text" placeholder="Phone Number" name="phoneNumber" class="form-control form-input" required />
-            </div>
-            <div class="input-group">
-                <input type="text" placeholder="Salary" name="salary" class="form-control form-input" required />
             </div>
             <div class="input-group">
                 <input type="password" placeholder="Password" class="form-control form-input" name="password" id="registerPassword" required />

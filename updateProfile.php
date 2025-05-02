@@ -7,6 +7,7 @@ session_start();
     $username = $conn->real_escape_string($_POST['username']);
     $email = $conn->real_escape_string($_POST['email']);
     $phoneNumber = $conn->real_escape_string($_POST['phoneNumber']);
+    $salary = $conn->real_escape_string($_POST['salary']);
 
 
     // Check if email or username already exists
@@ -16,8 +17,11 @@ session_start();
         $_SESSION['register_error'] = "Email already exists!";
     } else if ($checkUsername->num_rows > 0) {
         $_SESSION['register_error'] = "Username already exists!";
-    } else {
+    } else if($salary == null){
         $conn->query("UPDATE `users` SET `name`='$name',`lastName`='$lastName',`username`='$username',`email`='$email',`phoneNumber`='$phoneNumber' WHERE id = '$user_id'");
+        $_SESSION['register_success'] = "Successfully Updated!";
+    }else{
+        $conn->query("UPDATE `users` SET `name`='$name',`lastName`='$lastName',`username`='$username',`email`='$email',`phoneNumber`='$phoneNumber', `salary` = '$salary' WHERE id = '$user_id'");
         $_SESSION['register_success'] = "Successfully Updated!";
     }
 

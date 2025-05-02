@@ -89,14 +89,14 @@ if (session_status() === PHP_SESSION_NONE) {
                         <div class="card-body">
                             <h5 class="card-title">Manage Users</h5>
                             <p class="card-text">View, edit, or delete user accounts.</p>
-                            <a href="manageUsers.php" class="btn btn-dashboard">Go to Users</a>
+                            <a href="manageUsersTeller.php" class="btn btn-dashboard">Go to Users</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Add teller -->
                 <div class="col-md-6">
-                    <div class="card text-center">
+                    <div class="card text-center" style="background-color: red;">
                         <div class="card-body">
                             <h5 class="card-title">Bank Tellers</h5>
                             <p class="card-text">View and manager bank tellers.</p>
@@ -113,7 +113,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         <div class="card-body">
                             <h5 class="card-title">Profile</h5>
                             <p class="card-text">View and update your manager profile.</p>
-                            <a href="managerProfile.php" class="btn btn-dashboard">View Profile</a>
+                            <a href="tellerProfile.php" class="btn btn-dashboard">View Profile</a>
                         </div>
                     </div>
                 </div>

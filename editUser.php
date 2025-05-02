@@ -105,7 +105,7 @@ if (!$user) {
 
     <div class="profile-container" id="content">	
         <!-- Back Button -->
-        <a href="manageUsers.php" class="back-button">
+        <a href="managerDashboard.php" class="back-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H3.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708.708L3.707 7.5H14.5A.5.5 0 0 1 15 8z"/>
                 </svg>
@@ -121,10 +121,14 @@ if (!$user) {
             <p><label>Username:</label> <?php echo '<input name="username" type="text" class="dataField" value='.($user['username'] ?? 'N/A').'></input>'; ?></p>
             <p><label>Email:</label> <?php echo '<input name="email" type="text" class="dataField" value='.($user['email'] ?? 'N/A').'></input>'; ?></p>
             <p><label>Phone:</label> <input type="tel" name="phoneNumber" class="dataField" value="<?php echo ($user['phoneNumber'] ?? 'N/A'); ?>"></p>
+            <?php 
+                if($user['role'] == 'teller'){
+                    echo '<p><label>Salary:</label> <input type="number" step="0.1" name="salary" class="dataField" value="'.($user['salary'] ?? 'N/A').'"></p>';
+                }
+            ?>
         </div>
 
             <button type="submit" class="btn btn-primary">Update</a>
-            <!-- <a href="changePassword.php" class="btn btn-secondary">Change Password</a> -->
 
     </form>
     </div>

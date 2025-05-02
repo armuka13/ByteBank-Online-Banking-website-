@@ -48,16 +48,17 @@
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['email'] = $user['email'];
                 $_SESSION['role'] = $user['role'];
-                if ($user['role'] === 'admin') {
+                $_SESSION["token"] = bin2hex(random_bytes(32)); // Generate a random token
+                if ($user['role'] === 'manager') {
                     $_SESSION['login_success'] = "Successfully logged in!";
-                    header("Location: adminDashboard.php");
+                    header("Location: managerDashboard.php");
                 } else if ($user['role'] === 'user') {
                     $_SESSION['login_success'] = "Successfully logged in!";
-                    $_SESSION["token"] = bin2hex(random_bytes(32)); // Generate a random token
+                    
                     header("Location: userDashboard.php");
                 } else {
                     $_SESSION['login_success'] = "Successfully logged in!";
-                    header("Location: managerDashboard.php");
+                    header("Location: tellerDashboard.php");
                 }
                 exit();
             }
