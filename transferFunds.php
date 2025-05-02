@@ -76,7 +76,7 @@ $accounts = $conn->query("SELECT * FROM accounts");
                 <label for="from_account" class="form-label">Transfer From Account</label>
                 <select class="form-select" name="from_account" id="from_account" required>
                     <option value="" disabled selected>Select your account</option>
-                    <option value="">CASH</option> 
+
                     <?php foreach ($accounts as $acc): 
                         if ($acc['currency'] == "Euro") {
                             $currencySymbol = '€';
