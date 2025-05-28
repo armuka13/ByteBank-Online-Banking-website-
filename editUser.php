@@ -121,11 +121,6 @@ if (!$user) {
             <p><label>Username:</label> <?php echo '<input name="username" type="text" class="dataField" value='.($user['username'] ?? 'N/A').'></input>'; ?></p>
             <p><label>Email:</label> <?php echo '<input name="email" type="text" class="dataField" value='.($user['email'] ?? 'N/A').'></input>'; ?></p>
             <p><label>Phone:</label> <input type="tel" name="phoneNumber" class="dataField" value="<?php echo ($user['phoneNumber'] ?? 'N/A'); ?>"></p>
-            <?php 
-                if($user['role'] == 'teller'){
-                    echo '<p><label>Salary:</label> <input type="number" step="0.1" name="salary" class="dataField" value="'.($user['salary'] ?? 'N/A').'"></p>';
-                }
-            ?>
         </div>
 
             <button type="submit" class="btn btn-primary">Update</a>

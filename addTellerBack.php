@@ -8,7 +8,6 @@
         $username = $conn->real_escape_string($_POST['username']);
         $email = $conn->real_escape_string($_POST['email']);
         $phoneNumber = $conn->real_escape_string($_POST['phoneNumber']);
-        $salary = $conn->real_escape_string($_POST['salary']);
 
         $password = $conn->real_escape_string($_POST['password']);
         $salt = "!@#!@#!@#159753";
@@ -25,7 +24,7 @@
         } else if ($checkUsername->num_rows > 0) {
             $_SESSION['register_error'] = "Username already exists!";
         } else {
-            $conn->query("INSERT INTO users (name, lastName, username, email, phoneNumber, password, role, salary) VALUES ('$name', '$lastName', '$username', '$email', '$phoneNumber', '$encryptedpassword', '$role', '$salary')");
+            $conn->query("INSERT INTO users (name, lastName, username, email, phoneNumber, password, role) VALUES ('$name', '$lastName', '$username', '$email', '$phoneNumber', '$encryptedpassword', '$role')");
             $_SESSION['register_success'] = "Successfully Registered!";
         }
 

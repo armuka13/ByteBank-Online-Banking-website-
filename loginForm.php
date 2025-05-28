@@ -2,8 +2,8 @@
     session_start();
     if (isset($_SESSION["username"]) || isset($_SESSION["email"])) {
         // Redirect to dashboard if already logged in
-        if(isset($_SESSION["role"]) && $_SESSION["role"] === 'admin') {
-            header("Location: adminDashboard.php");
+        if(isset($_SESSION["role"]) && $_SESSION["role"] === 'teller') {
+            header("Location: tellerDashboard.php");
         } else if(isset($_SESSION["role"]) && $_SESSION["role"] === 'user') {
             header("Location: userDashboard.php");
         } else if(isset($_SESSION["role"]) && $_SESSION["role"] === 'manager') {

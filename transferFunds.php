@@ -19,6 +19,7 @@ $accounts = $conn->query("SELECT * FROM accounts");
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="styles.css">
         <link rel="stylesheet" href="dashboardHeaderStyle.css">
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
         <style>
             body {
                 margin: 0;
@@ -74,7 +75,7 @@ $accounts = $conn->query("SELECT * FROM accounts");
             <h2>Transfer Funds</h2>
             <form method="POST" action="transferFundsBack.php" onsubmit="return validateForm(this)">
                 <label for="from_account" class="form-label">Transfer From Account</label>
-                <select class="form-select" name="from_account" id="from_account" required>
+                <select class="form-select select2" name="from_account" id="from_account" required>
                     <option value="" disabled selected>Select your account</option>
 
                     <?php foreach ($accounts as $acc): 
@@ -127,39 +128,48 @@ $accounts = $conn->query("SELECT * FROM accounts");
             </form>
         </div>
 
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         <script>
-            // Show selected account's balance
-            const accountSelect = document.getElementById('from_account');
-            const balanceDiv = document.getElementById('account-balance');
-            accountSelect.addEventListener('change', function() {
-                const selected = accountSelect.options[accountSelect.selectedIndex];
-                const balance = selected.getAttribute('data-balance');
-                if (balance !== null) {
-                    balanceDiv.textContent = "Available Balance: " + balance;
-                } else {
-                    balanceDiv.textContent = "";
-                }
-            });
+            $(document).ready(function() {
+        $('#from_account').select2({
+            width: '100%',
+            placeholder: "Select your account"
+        });
+    });
 
-            function validateForm(form) {
-                const selectedOption = form.from_account.options[form.from_account.selectedIndex];
-                const balance = parseFloat(selectedOption.getAttribute('data-balance'));
-                const amount = parseFloat(form.amount.value);
+    // Show selected account's balance
+    const accountSelect = document.getElementById('from_account');
+    const balanceDiv = document.getElementById('account-balance');
+    accountSelect.addEventListener('change', function() {
+        const selected = accountSelect.options[accountSelect.selectedIndex];
+        const balance = selected.getAttribute('data-balance');
+        if (balance !== null) {
+            balanceDiv.textContent = "Available Balance: " + balance;
+        } else {
+            balanceDiv.textContent = "";
+        }
+    });
 
-                if (isNaN(balance)) {
-                    alert("Please select an account.");
-                    return false;
-                }
-                if (amount > balance) {
-                    alert("The amount exceeds the available balance. Please enter a valid amount.");
-                    return false;
-                }
-                if (!form.recieverAcc.value.trim()) {
-                    alert("Please enter a valid account number or IBAN.");
-                    return false;
-                }
-                return true;
-            }
+    function validateForm(form) {
+        const selectedOption = form.from_account.options[form.from_account.selectedIndex];
+        const balance = parseFloat(selectedOption.getAttribute('data-balance'));
+        const amount = parseFloat(form.amount.value);
+
+        if (isNaN(balance)) {
+            alert("Please select an account.");
+            return false;
+        }
+        if (amount > balance) {
+            alert("The amount exceeds the available balance. Please enter a valid amount.");
+            return false;
+        }
+        if (!form.recieverAcc.value.trim()) {
+            alert("Please enter a valid account number or IBAN.");
+            return false;
+        }
+        return true;
+    }
         </script>
     </body>
 </html>

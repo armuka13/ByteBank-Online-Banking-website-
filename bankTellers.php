@@ -116,7 +116,6 @@ if ($search) {
                     <th>Username</th>
                     <th>Phone Number</th>   
                     <th>Email</th>
-                    <th>Salary</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -140,7 +139,6 @@ if ($search) {
                             echo "<td>" . ($user['username']) . "</td>";
                             echo "<td>" . ($user['phoneNumber']) . "</td>";
                             echo "<td>" . ($user['email']) . "</td>";
-                            echo "<td>" . ($user['salary']) . "</td>";
                             echo "<td style='text-align: center;'><a href='deleteUser.php?user_id=" . $user['id'] . "'><i class='bi bi-trash' style='color: red;'></i></a></td>"; 
                             echo "<td style='text-align: center; class='add'><a href='editUser.php?user_id=" . $user['id'] . "'><i class='bi bi-pencil-square' style='color: teal;'></i></a></td>";
 
@@ -154,7 +152,6 @@ if ($search) {
                             echo "<td>" . ($user['username']) . "</td>";
                             echo "<td>" . ($user['phoneNumber']) . "</td>";
                             echo "<td>" . ($user['email']) . "</td>";
-                            echo "<td>" .  number_format((float)$user['salary'], 2, '.', ',') . "</td>";
                             echo "<td style='text-align: center; class='add'><a href='editUser.php?user_id=" . $user['id'] . "'><i class='bi bi-pencil-square' style='color: teal;'></i></a></td>";
                             echo "<td style='text-align: center;'><a href='deleteUser.php?user_id=" . $user['id'] . "'><i class='bi bi-trash' style='color: red;'></i></a></td>";
                             echo "</tr>";

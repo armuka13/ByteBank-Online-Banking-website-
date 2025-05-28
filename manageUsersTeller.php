@@ -140,7 +140,7 @@ if ($search) {
                             echo "<td>" . ($user['phoneNumber']) . "</td>";
                             echo "<td>" . ($user['email']) . "</td>";
                             echo "<td style='text-align: center;'><a href='deleteUser.php?user_id=" . $user['id'] . "'><i class='bi bi-trash' style='color: red;'></i></a></td>"; 
-                            echo "<td style='text-align: center; class='add'><a href='editUser.php?user_id=" . $user['id'] . "'><i class='bi bi-pencil-square' style='color: teal;'></i></a></td>";
+                            echo "<td style='text-align: center; class='add'><a href='editUserTeller.php?user_id=" . $user['id'] . "'><i class='bi bi-pencil-square' style='color: teal;'></i></a></td>";
 
                             echo "</tr>";
                         }
@@ -152,7 +152,7 @@ if ($search) {
                             echo "<td>" . ($user['username']) . "</td>";
                             echo "<td>" . ($user['phoneNumber']) . "</td>";
                             echo "<td>" . ($user['email']) . "</td>";
-                            echo "<td style='text-align: center; class='add'><a href='editUser.php?user_id=" . $user['id'] . "'><i class='bi bi-pencil-square' style='color: teal;'></i></a></td>";
+                            echo "<td style='text-align: center; class='add'><a href='editUserTeller.php?user_id=" . $user['id'] . "'><i class='bi bi-pencil-square' style='color: teal;'></i></a></td>";
                             echo "<td style='text-align: center;'><a href='deleteUser.php?user_id=" . $user['id'] . "'><i class='bi bi-trash' style='color: red;'></i></a></td>";
                             echo "</tr>";
                         }

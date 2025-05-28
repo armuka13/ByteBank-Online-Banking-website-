@@ -147,9 +147,6 @@ function displaySuccess($success) {
                 <input type="text" placeholder="Phone Number" name="phoneNumber" class="form-control form-input" required />
             </div>
             <div class="input-group">
-                <input type="text" placeholder="Salary" name="salary" class="form-control form-input" required />
-            </div>
-            <div class="input-group">
                 <input type="password" placeholder="Password" class="form-control form-input" name="password" id="registerPassword" required />
                 <span class="input-group-text" onclick="togglePasswordVisibility('registerPassword', 'registerEye')">
                     <i id="registerEye" class="bi bi-eye"></i>
