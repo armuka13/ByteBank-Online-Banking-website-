@@ -42,13 +42,15 @@ if ($category == 'Regular') {
 
 $user_id = $user['id'];
 if($currency == 'Lek'){
-    $balance < 200 ? $_SESSION['error'] = "Error: Minimum balance for Lek accounts is 200." : null;
-    header("Location: createAccount.php");
-    exit;
+    if($balance < 200) {
+        header("Location: createAccount.php");
+        exit;
+    }
 }else{
-    $balance < 2 ? $_SESSION['error'] = "Error: Minimum balance for non-Lek accounts is 2." : null;
-    header("Location: createAccount.php");
-    exit;
+    if($balance < 2) {
+        header("Location: createAccount.php");
+        exit;
+    }
 }
 // Fetch the source account details
 $source_account = $conn->query("SELECT `currency`, `balance` FROM `accounts` WHERE `acc_number` = '$from_account'")->fetch_assoc();
